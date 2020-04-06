@@ -1,0 +1,12 @@
+filebeat.inputs:
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/*.log
+  fields:
+     logtype: syslog
+     tail_files: true
+
+#output.logstash:
+#  hosts: ["x.x.x.x:5044"]
