@@ -15,12 +15,12 @@
 :earth_africa: 用法:
 ---
 ```
-git clone https://github.com/ghl1024/Ansible-Filebeat.git
-cd ./Ansible-Filebeat/soft/sh/fast && ./fast_filebeat7.1.sh RemoteIP
+git clone https://github.com/ghl1024/Use-Ansible-Install-Filebeat.git
+cd ./Use-Ansible-Install-Filebeat/soft/sh/fast && ./fast_filebeat7.1.sh RemoteIP
 ```
 
 :pencil2:例子：
 ---
 ```
-cd /soft/sh/fast && ./fast_filebeat7.1.sh 172.14.125.36
+cd ./Use-Ansible-Install-Filebeat/soft/sh/fast && ./fast_filebeat7.1.sh 172.14.125.36
 ```
