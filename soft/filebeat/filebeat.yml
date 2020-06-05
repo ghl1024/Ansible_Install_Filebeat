@@ -8,5 +8,26 @@ filebeat.inputs:
      logtype: syslog
      tail_files: true
 
-#output.logstash:
-#  hosts: ["x.x.x.x:5044"]
+close_inactive: 5m
+#如果在制定时间没有被读取，将关闭文件句柄，读取的最后一条日志定义为下一次读取的起始点，而不是基于文件的修改时间；
+
+clean_inactive: 1h
+#从注册表文件中删除先前收获的文件的状态，设置必须大于ignore_older+scan_frequency，以确保在文件仍在收集时没有删除任何状态，配置选项有助于减小注册表文件的大小，特别是如果每天都生成大量的新文件，此配置选项也可用于防止在Linux上重用inode的Filebeat问题；
+
+ignore_older: 2h
+#忽略2h以外修改的日志内容;
+
+close_inactive: 1m
+#没有新日志多长时间关闭文件句柄，默认5分钟可改短一些；
+
+clean_inactive: 72h
+#多久清理一次registry文件，默认值为0，运行时间长可能会导致该文件变大带来性能问题；
+
+max_procs: 1 
+#限制最大使用cpu核数为1，防止占用资源过多；
+
+close_older: 2h
+#如果一个文件在某个时间段内没有发生过更新，则关闭监控的文件handle，默认1h,change只会在下一次scan才会被发现；
+
+output.logstash:
+  hosts: ["x.x.x.x:5044"]
